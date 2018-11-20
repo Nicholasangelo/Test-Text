@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS rownoteDb;
+CREATE DATABASE rownoteDb;

@@ -1,0 +1,33 @@
+body {
+    background: linear-gradient(#f593a4, white);
+}
+#toolbar {
+    background-color: azure;
+    /* display: none; */
+    text-align: center;
+}
+#textContainer {
+margin: 0 auto;
+height: 40em;
+}
+#resourceBlock {
+    background: linear-gradient(white, #0000ff1a);
+}
+.header {
+    text-align: center;
+    height: 2em;
+    font-size: 3em;
+}
+
+/* #toolbar:hover {
+    display: show;
+} */
+#editor {
+    background-color: ghostwhite;
+}
+#viewNotes {
+    border-radius: 50%;
+}
+#viewNotes:hover {
+    
+}
