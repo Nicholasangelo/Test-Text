@@ -1,7 +1,7 @@
 body {
     background: linear-gradient(#f593a4, white);
 }
-#toolbar {
+.ql-toolbar {
     background-color: azure;
     /* display: none; */
     text-align: center;
@@ -12,6 +12,7 @@ height: 40em;
 }
 #resourceBlock {
     background: linear-gradient(white, #0000ff1a);
+    box-shadow: 2px 2px 1px;
 }
 .header {
     text-align: center;
