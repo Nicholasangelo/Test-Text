@@ -1,10 +1,14 @@
 body {
-    background: linear-gradient(#f593a4, white);
+    /* background: linear-gradient(#f593a4, white); */
+    background-color: rgb(139, 172, 201);
 }
 .ql-toolbar {
     background-color: azure;
-    /* display: none; */
+    /* visibility: hidden; */
     text-align: center;
+}
+.ql-toolbar:hover {
+    visibility: visible;
 }
 #textContainer {
 margin: 0 auto;
@@ -19,16 +23,13 @@ height: 40em;
     height: 2em;
     font-size: 3em;
 }
-
-/* #toolbar:hover {
-    display: show;
-} */
 #editor {
     background-color: ghostwhite;
 }
 #viewNotes {
-    border-radius: 50%;
+    border-radius: 54%;
+    height: 4em;
 }
 #viewNotes:hover {
-    
+    cursor: pointer;
 }

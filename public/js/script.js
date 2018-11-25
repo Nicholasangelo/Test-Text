@@ -31,3 +31,63 @@ $(document).ready(function () {
     })
     
 })
+
+$("#saveProject").on("click", function (event) {
+event.preventDefault();
+    var userProject = {
+        Title: $("#userProject").val().trim(),
+        Body: 0
+    }
+
+    // POST request to router.post("/api/burgers", ...) in burgers_controller.js
+    // $.ajax("/api/burgers",
+        // and send POST body JSON with data
+        // {
+        //     type: "POST",
+        //     data: newBurger
+        // })
+
+        // .then, when POST responds by sending (res),
+        // .then(function () {
+
+            // confirm creation of new item
+            // console.log("created new code to devour");
+
+            // and reload the page so selectAll() can display updated list
+            // location.reload();
+
+//         });
+
+// });
+
+})
+
+$("#saveNote").on("click", function (event) {
+    event.preventDefault();
+        var newNote = {
+            Title: $("#noteTitle").val().trim(),
+            Body: $("#editor").val().trim(),
+            category: $("#category").val().trim()
+        }
+    
+        // POST request to router.post("/api/burgers", ...) in burgers_controller.js
+        $.ajax("/api/notes",
+            // and send POST body JSON with data
+            {
+                type: "POST",
+                data: newNote
+            })
+    
+            // .then, when POST responds by sending (res),
+            .then(function () {
+    
+                // confirm creation of new item
+                // console.log("created new code to devour");
+    
+                // and reload the page so selectAll() can display updated list
+                location.reload();
+    
+            });
+    
+    });
+    

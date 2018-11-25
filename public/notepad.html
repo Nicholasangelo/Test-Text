@@ -23,10 +23,9 @@
 <body>
     <div class="header">
         <div>MVP</div>
-        <button id="viewNotes">Notes</button>
     </div>
     <div class="container">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-sm-4">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -46,7 +45,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div id="textConatiner" class="col-sm-8">
                 <div id="toolbar" class="tools">
@@ -78,26 +77,28 @@
                         a little dummy text for your mockup? How quaint. I bet you’re still using Bootstrap too…
                     </p>
                 </div>
+                <button class="btn-primary" id="saveProject">Save</button>
             </div>
 
 
-            <div class="col-sm-4" id="resourceBlock" data-hide="true">
+            <div class="col-sm-4" data-hide="true">
+                <button id="viewNotes">Notes</button>
+                <div id="resourceBlock">
+                    <ul class="list-group topics">
+                        <li>TOPICS</li>
+                    </ul>
 
-                <ul class="list-group topics">
-                    <li>TOPICS</li>
-                </ul>
+                    <div class="form">
+                        <div class="form-group">
+                            <label for="searchNotes">Search Your Notes</label>
+                            <input type="input" class="form-control" id="userSearch" placeholder="Search for a topic here">
+                        </div>
 
-                <div class="form">
-                    <div class="form-group">
-                        <label for="tasteyBurger">Search Your Notes</label>
-                        <input type="input" class="form-control" id="userSearch" placeholder="Search for a topic here">
+                        <button type="submit" id="newBurgerBtn" class="btn btn-primary">Submit</button>
+                        <div class="close">X</div>
                     </div>
-
-                    <button type="submit" id="newBurgerBtn" class="btn btn-primary">Submit</button>
-                    <div class="close">X</div>
                 </div>
             </div>
-
         </div>
     </div>
 
