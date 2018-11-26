@@ -81,4 +81,14 @@ module.exports = function(app) {
         res.json(dbPost);
       });
   });
+// POST new project
+  app.post("/api/projects", function(req, res) {
+    console.log(req.body);
+    db.Post.create({
+      body: req.body.body,
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
 };

@@ -9,7 +9,7 @@ var toolbarOptions = [
     ['blockquote', 'code-block']
 ];
 
-var editor = new Quill('#editor', {
+var quill = new Quill('#editor', {
     modules: {
         toolbar: toolbarOptions
     },
@@ -29,65 +29,68 @@ $(document).ready(function () {
         $("#resourceBlock").css("display", "none");
 
     })
-    
+
 })
 
 $("#saveProject").on("click", function (event) {
-event.preventDefault();
-    var userProject = {
-        Title: $("#userProject").val().trim(),
-        Body: 0
-    }
+    event.preventDefault();
+    var deltaText = quill.getText();
+    console.log("this is user input text, not attr: " + deltaText)
+    var delta = quill.getContents();
+    console.log("deltaContents: " + delta)
+// });
 
-    // POST request to router.post("/api/burgers", ...) in burgers_controller.js
-    // $.ajax("/api/burgers",
-        // and send POST body JSON with data
-        // {
-        //     type: "POST",
-        //     data: newBurger
-        // })
 
-        // .then, when POST responds by sending (res),
-        // .then(function () {
 
-            // confirm creation of new item
-            // console.log("created new code to devour");
+// POST request to router.post("/api/burgers", ...) in burgers_controller.js
+$.ajax("/api/notes",
+    // and send POST body JSON with data
+    {
+        type: "POST",
+        data: deltaText
+    })
 
-            // and reload the page so selectAll() can display updated list
-            // location.reload();
+    // .then, when POST responds by sending (res),
+    .then(function () {
 
-//         });
+        // confirm creation of new item
+        // console.log("created new code to devour");
+
+        // and reload the page so selectAll() can display updated list
+        location.reload();
+
+        });
+    });
 
 // });
 
-})
+// })
 
-$("#saveNote").on("click", function (event) {
-    event.preventDefault();
-        var newNote = {
-            Title: $("#noteTitle").val().trim(),
-            Body: $("#editor").val().trim(),
-            category: $("#category").val().trim()
-        }
-    
+// $("#saveNote").on("click", function (event) {
+//     event.preventDefault();
+//         var newNote = {
+//             Title: $("#noteTitle").val().trim(),
+//             Body: $("#editor").val().trim(),
+//             category: $("#category").val().trim()
+//         }
+
         // POST request to router.post("/api/burgers", ...) in burgers_controller.js
-        $.ajax("/api/notes",
+        // $.ajax("/api/notes",
             // and send POST body JSON with data
-            {
-                type: "POST",
-                data: newNote
-            })
-    
+            // {
+            //     type: "POST",
+            //     data: newNote
+            // })
+
             // .then, when POST responds by sending (res),
-            .then(function () {
-    
+            // .then(function () {
+
                 // confirm creation of new item
                 // console.log("created new code to devour");
-    
+
                 // and reload the page so selectAll() can display updated list
-                location.reload();
-    
-            });
-    
-    });
-    
+    //             location.reload();
+
+    //         });
+
+    // });
