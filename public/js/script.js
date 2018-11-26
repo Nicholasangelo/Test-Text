@@ -16,7 +16,53 @@ var quill = new Quill('#editor', {
     theme: 'snow'
 });
 
+
+$("#saveProject").on("click", function (event) {
+    event.preventDefault();
+    // var content = $("#editor > p")
+    var delta = quill.getContents();
+    console.log("deltaContents: " + JSON.stringify(delta));
+    // });
+
+
+
+
+    var newProject = {
+        body: JSON.stringify(delta)
+    }
+    // POST request to router.post("/api/burgers", ...) in burgers_controller.js
+    $.ajax("/api/notes",
+        // and send POST body JSON with data
+        {
+            type: "POST",
+            data: newProject
+        })
+
+        // .then, when POST responds by sending (res),
+        .then(function () {
+
+            // confirm creation of new item
+            // console.log("created new code to devour");
+
+            // and reload the page so selectAll() can display updated list
+            location.reload();
+
+        });
+})
+
 $(document).ready(function () {
+    // var loadProject = 
+    // $ajax("/api/notes/:id",
+    // {
+    //     type: "GET",
+    //     data: 1
+    // })
+    // .then(function () {
+    //     location.reload();
+    // })
+
+    // loadProject();
+    
     $("#resourceBlock").css("display", "none");
 
 
@@ -31,36 +77,7 @@ $(document).ready(function () {
     })
 
 })
-
-$("#saveProject").on("click", function (event) {
-    event.preventDefault();
-    var deltaText = quill.getText();
-    console.log("this is user input text, not attr: " + deltaText)
-    var delta = quill.getContents();
-    console.log("deltaContents: " + delta)
-// });
-
-
-
-// POST request to router.post("/api/burgers", ...) in burgers_controller.js
-$.ajax("/api/notes",
-    // and send POST body JSON with data
-    {
-        type: "POST",
-        data: deltaText
-    })
-
-    // .then, when POST responds by sending (res),
-    .then(function () {
-
-        // confirm creation of new item
-        // console.log("created new code to devour");
-
-        // and reload the page so selectAll() can display updated list
-        location.reload();
-
-        });
-    });
+    // });
 
 // });
 

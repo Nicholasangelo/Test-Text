@@ -48,9 +48,9 @@ module.exports = function(app) {
   app.post("/api/notes", function(req, res) {
     console.log(req.body);
     db.Post.create({
-      title: req.body.title,
+      // title: req.body.title,
       body: req.body.body,
-      category: req.body.category
+      // category: req.body.category
     })
       .then(function(dbPost) {
         res.json(dbPost);
